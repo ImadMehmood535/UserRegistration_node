@@ -22,8 +22,9 @@ const validateRegistrationData = [
   ];
 
   const handleValidationErrors = (req, res, next) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
+    const errors = validationResult(req);           // Retrieve validation errors from the request
+    
+    if (!errors.isEmpty()) {                         // Check if there are any validation errors
       return res.status(400).json({ errors: errors.array() });
     }
     next();
