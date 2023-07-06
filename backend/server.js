@@ -9,7 +9,7 @@ require("dotenv").config()
 
 
 
-
+//middleware
 
 app.use(bodyParser.json());
 app.use("/api", userRoute)
