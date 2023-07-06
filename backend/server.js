@@ -6,17 +6,15 @@ const bodyParser = require("body-parser");
 require("dotenv").config()
 
 
-
-
-
-
-
+//mmiddlewares
 app.use(bodyParser.json());
 app.use("/api", userRoute)
 
-
+//PORT
 const PORT = process.env.PORT || 4000
-//connect to mongob and start server 
+
+
+// Try to connect mongodb if connected successfully then start server 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
 

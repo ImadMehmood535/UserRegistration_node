@@ -5,8 +5,6 @@ const registerUser = asyncHandler(async (req, res) => {
     
     const { name, email, password } = req.body;
 
-
-
       //create new user
       const user = await User.create({
         name : name,
@@ -14,11 +12,14 @@ const registerUser = asyncHandler(async (req, res) => {
         password : password
       })
 
-      if(user){ return res.status(201).json({user})
+      if(user)    // check if user has been created
+      { return res.status(201).json({"message": "Successfully created", name , email})
     
     
+    }   // if not then
+      else{ 
+        return res.status(400).json({"message": "User was not created"})
     }
-      else{ return res.status(400)}
 
 
 });
